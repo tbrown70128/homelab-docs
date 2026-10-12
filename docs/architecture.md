@@ -25,6 +25,8 @@ virsh dominfo <vm-name>
 
 Pi-hole, Unbound, and Tailscale run directly on the host. Home Assistant runs in the VM. All other services run in Docker, each defined in its own compose file.
 
+There is no file sharing service on the host. Large files are copied to the media drive over SFTP, which uses the same key-only SSH access as server administration.
+
 ## Service inventory
 
 | Service | Purpose | Runs in | Access |
@@ -55,7 +57,6 @@ Port conflicts have caused an outage before (see the [incident write-up](inciden
 | 5335 | Unbound | Localhost only, upstream for Pi-hole |
 | 80, 443 | Nginx Proxy Manager | Reverse proxy |
 | 81 | Nginx Proxy Manager | Admin interface |
-| 139, 445 | Samba | File sharing |
 | 1901, 7359, 8097, 8921 | Jellyfin | DLNA, client discovery, web, HTTPS |
 | 2283 | Immich | Web interface and API |
 | 3000 | Homepage | Dashboard |

@@ -20,6 +20,7 @@ Work I know needs doing, roughly in priority order. Each item links to the contr
 - Removed a container platform that obscured volume paths and moved its apps to plain compose files
 - Replaced an ad hoc reverse proxy container with a compose-managed, version-pinned one
 - Switched SSH to key-only login and removed an unused key
+- Turned off an unused file sharing service and moved large file transfers to SFTP
 - Pinned every container image to an explicit version
 - Removed Docker socket access from Netdata and put Uptime Kuma's behind a read-only filtering proxy
 - Encrypted the password manager backups with the key kept offline, and tested decryption
