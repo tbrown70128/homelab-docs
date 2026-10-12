@@ -15,7 +15,7 @@ Status key: **Implemented**, **Partial**, **Gap**.
 | 7 | Availability monitoring | Uptime Kuma checks services and a status page. Netdata tracks host metrics | Implemented | DE.CM |
 | 8 | Asset inventory | Service inventory and reserved ports are documented in [architecture](architecture.md) | Partial | ID.AM |
 | 9 | Data separation | Bulk data lives on a separate drive from the system disk | Implemented | PR.DS |
-| 10 | Backups | Home Assistant backs up automatically to cloud storage, and a nightly job backs up the password manager. Photos, files, and media do not have a second copy yet | Partial | PR.DS |
+| 10 | Backups | Home Assistant backs up automatically to cloud storage. A nightly job backs up the password manager to two separate disks in the server and keeps 14 days of copies. Photos, files, and media do not have a second copy yet | Partial | PR.DS |
 | 11 | Network segmentation | Smart home devices share the LAN with servers | Gap | PR.IR |
 | 12 | Redundant DNS | Secondary Pi-hole is offline, so the fallback resolver is unfiltered | Partial | PR.IR |
 | 13 | Incident review | Blameless write-ups kept in [incidents](incidents/) | Implemented | ID.IM |
