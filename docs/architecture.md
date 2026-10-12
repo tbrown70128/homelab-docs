@@ -36,7 +36,7 @@ Pi-hole, Unbound, and Tailscale run directly on the host. Home Assistant runs in
 | Jellyfin | Media streaming | Docker | `.home` name, tailnet for remote |
 | Immich | Photo library | Docker | `.home` name, tailnet for remote |
 | Nextcloud | File sync and storage | Docker | Tailscale Serve (HTTPS) |
-| Vaultwarden | Password manager | Docker | Tailnet only |
+| Vaultwarden | Password manager | Docker | Tailscale Serve (HTTPS) |
 | Actual Budget | Budgeting | Docker | Tailscale Serve (HTTPS) |
 | Mealie | Recipes and meal planning | Docker | `.home` name |
 | Uptime Kuma | Availability monitoring | Docker | `.home` name |
@@ -62,12 +62,14 @@ Port conflicts have caused an outage before (see the [incident write-up](inciden
 | 3001 | Uptime Kuma | Monitoring |
 | 5216 | MySpeed | Speed tests |
 | 8080 | Nextcloud | Web interface |
-| 8222 | Vaultwarden | Localhost only, reached through Tailscale |
+| 8222 | Vaultwarden | Localhost only, published through Tailscale Serve on 9443 |
 | 8800 | Pi-hole | Web interface |
 | 9925 | Mealie | Web interface |
 | 15006 | Actual Budget | Web interface |
 | 19999 | Netdata | Web interface |
-| 8443, 9443, 10000 | Tailscale Serve | Private HTTPS addresses on the tailnet |
+| 8443 | Tailscale Serve | Actual Budget |
+| 9443 | Tailscale Serve | Vaultwarden |
+| 10000 | Tailscale Serve | Nextcloud |
 
 ## Diagram
 

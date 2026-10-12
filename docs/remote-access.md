@@ -24,14 +24,13 @@ Phones run Tailscale always on. Laptops and desktops connect when needed.
 
 | Service | Path |
 | --- | --- |
-| Nextcloud, Actual Budget | Tailscale Serve, HTTPS, tailnet only |
-| Vaultwarden | Tailnet only |
+| Nextcloud, Actual Budget, Vaultwarden | Tailscale Serve, HTTPS, tailnet only. Vaultwarden itself listens on localhost only |
 | Immich, Jellyfin, and other `.home` services | Over the tailnet through the advertised subnet |
 | Home Assistant | Cloud relay, with two-factor authentication enabled |
 
 ## Operating notes
 
-- **Serve ports are shared with everything else on the host.** Tailscale Serve once claimed port 443 and blocked the reverse proxy from starting after a reboot. Serve now uses 8443 and 10000, tracked in the [reserved ports table](architecture.md#reserved-ports-on-the-lab-server). See the [incident write-up](incidents/2026-10-npm-port-collision.md).
+- **Serve ports are shared with everything else on the host.** Tailscale Serve once claimed port 443 and blocked the reverse proxy from starting after a reboot. Serve now uses 8443, 9443, and 10000, tracked in the [reserved ports table](architecture.md#reserved-ports-on-the-lab-server). See the [incident write-up](incidents/2026-10-npm-port-collision.md).
 - **Run one VPN client per device.** A commercial VPN client running next to Tailscale on one Windows machine caused intermittent failures reaching the Tailscale coordination server. The working approach is to use one at a time.
 - **Subnet routes need approval.** Advertised routes and exit nodes must be approved in the Tailscale admin console before they take effect.
 
