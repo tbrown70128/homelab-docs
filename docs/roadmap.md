@@ -9,7 +9,7 @@ Work I know needs doing, roughly in priority order. Each item links to the contr
 | 3 | Bring the Raspberry Pi 4 back as a second Pi-hole | Removes the unfiltered fallback and gives DNS redundancy | 12 |
 | 4 | Sync the two Pi-holes with Teleporter and document the process | Keeps blocklists, groups, and local names identical | 12 |
 | 5 | Add a DNS health monitor in Uptime Kuma | Detect resolver problems before devices start failing | 7 |
-| 6 | Separate smart home devices from servers | Limit what a compromised device can reach. Needs router and switch planning | 11 |
+| 6 | Separate smart home devices from servers | Limit what a compromised device can reach. An earlier attempt was unstable, so plan it and test one device group at a time | 11 |
 | 7 | Review Tailscale access rules | Restrict which devices can reach which services | 1, 2 |
 | 8 | Add sanitized compose files for the remaining services | Make the whole lab reproducible from this repo | 5, 8 |
 

@@ -44,8 +44,6 @@ Pi-hole, Unbound, and Tailscale run directly on the host. Home Assistant runs in
 | MySpeed | Internet speed tests | Docker | `.home` name |
 | Homepage | Dashboard for the whole lab | Docker | `.home` name |
 
-<!-- VERIFY: confirm the access path for Vaultwarden (Tailscale Serve or .home) and that Vaultwarden and Nextcloud both run in Docker -->
-
 ## Reserved ports on the lab server
 
 Port conflicts have caused an outage before (see the [incident write-up](incidents/2026-10-npm-port-collision.md)), so ports are tracked here.

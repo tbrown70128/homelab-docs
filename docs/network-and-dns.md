@@ -4,9 +4,7 @@
 
 The lab server has a static DHCP reservation on the mesh router, so its address never changes. Examples in this repo use `192.168.x.10` for the server.
 
-Segmentation is not implemented yet. Everything shares one LAN. Splitting smart home devices onto their own segment is on the [roadmap](roadmap.md).
-
-<!-- VERIFY: confirm the LAN is still flat before publishing -->
+Everything shares one flat LAN, including servers, computers, and smart home devices. I tried a separate network for smart home devices before and it was never stable, so I went back to a single network. Trying again with a more careful plan is on the [roadmap](roadmap.md).
 
 ## DNS flow
 
