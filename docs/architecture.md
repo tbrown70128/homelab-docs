@@ -46,16 +46,28 @@ Pi-hole, Unbound, and Tailscale run directly on the host. Home Assistant runs in
 
 ## Reserved ports on the lab server
 
-Port conflicts have caused an outage before (see the [incident write-up](incidents/2026-10-npm-port-collision.md)), so ports are tracked here.
+Port conflicts have caused an outage before (see the [incident write-up](incidents/2026-10-npm-port-collision.md)), so every port in use is tracked here. Check this table before adding a service or a Tailscale Serve address.
 
 | Port | Owner | Notes |
 | --- | --- | --- |
+| 22 | SSH | Host administration |
 | 53 | Pi-hole | DNS for the LAN |
 | 5335 | Unbound | Localhost only, upstream for Pi-hole |
 | 80, 443 | Nginx Proxy Manager | Reverse proxy |
 | 81 | Nginx Proxy Manager | Admin interface |
-| 8443 | Tailscale Serve | Actual Budget |
-| 10000 | Tailscale Serve | Nextcloud |
+| 139, 445 | Samba | File sharing |
+| 1901, 7359, 8097, 8921 | Jellyfin | DLNA, client discovery, web, HTTPS |
+| 2283 | Immich | Web interface and API |
+| 3000 | Homepage | Dashboard |
+| 3001 | Uptime Kuma | Monitoring |
+| 5216 | MySpeed | Speed tests |
+| 8080 | Nextcloud | Web interface |
+| 8222 | Vaultwarden | Localhost only, reached through Tailscale |
+| 8800 | Pi-hole | Web interface |
+| 9925 | Mealie | Web interface |
+| 15006 | Actual Budget | Web interface |
+| 19999 | Netdata | Web interface |
+| 8443, 9443, 10000 | Tailscale Serve | Private HTTPS addresses on the tailnet |
 
 ## Diagram
 
