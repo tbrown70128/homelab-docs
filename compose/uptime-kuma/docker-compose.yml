@@ -1,0 +1,12 @@
+# Reference example. Adjust paths for your own host.
+# Data lives in a bind mount next to this file. Always update through this file
+# (docker compose pull, then docker compose up -d) so the data path never changes.
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./data:/app/data

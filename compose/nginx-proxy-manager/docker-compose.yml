@@ -1,0 +1,14 @@
+# Reference example. Adjust paths for your own host.
+# Image is pinned on purpose. Review the pin periodically and update it deliberately.
+services:
+  npm:
+    image: jc21/nginx-proxy-manager:2.13.5
+    container_name: npm
+    restart: unless-stopped
+    ports:
+      - "80:80"    # HTTP
+      - "443:443"  # HTTPS
+      - "81:81"    # Admin UI. Keep this off any public interface.
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt

@@ -1,0 +1,19 @@
+# Secrets and local config
+.env
+*.env
+!.env.example
+
+# Service data
+data/
+letsencrypt/
+*.db
+*.sqlite
+
+# Keys and certificates
+*.key
+*.pem
+*.crt
+
+# Editor and OS files
+.DS_Store
+*.swp
