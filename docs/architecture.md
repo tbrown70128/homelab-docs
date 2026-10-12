@@ -12,9 +12,14 @@
 
 ## Virtualization
 
-Home Assistant OS runs as a virtual machine on the lab server using QEMU with a bridged network interface, so the VM gets its own address on the LAN. Everything else runs in Docker or directly on the host.
+Home Assistant OS runs as a single virtual machine on the lab server. The VM is managed with libvirt (`virsh`) and runs on QEMU with a bridged network interface, so it gets its own address on the LAN. Everything else runs in Docker or directly on the host.
 
-<!-- VERIFY: confirm the hypervisor with `virsh list --all` or `ps aux | grep qemu` and name it here -->
+Useful commands for checking the VM:
+
+```
+virsh list --all
+virsh dominfo <vm-name>
+```
 
 ## Where each service runs
 
