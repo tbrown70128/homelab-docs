@@ -1,12 +1,38 @@
 # Reference example. Adjust paths for your own host.
 # Data lives in a bind mount next to this file. Always update through this file
-# (docker compose pull, then docker compose up -d) so the data path never changes.
+# (change the pinned version, then docker compose up -d) so the data path never changes.
+#
+# Docker container monitors need to ask Docker about container status. Instead of
+# mounting the Docker socket into Uptime Kuma, a small proxy holds the socket and
+# answers read-only container queries on a private network that has no outside route.
+# In Uptime Kuma, add a Docker host of type TCP / HTTP pointing at
+# http://docker-socket-proxy:2375
 services:
   uptime-kuma:
-    image: louislam/uptime-kuma:1
+    image: louislam/uptime-kuma:1.23.17
     container_name: uptime-kuma
     restart: unless-stopped
     ports:
       - "3001:3001"
     volumes:
       - ./data:/app/data
+    networks:
+      - default
+      - docker-api
+    depends_on:
+      - docker-socket-proxy
+
+  docker-socket-proxy:
+    image: tecnativa/docker-socket-proxy:0.3.0
+    container_name: docker-socket-proxy
+    restart: unless-stopped
+    environment:
+      CONTAINERS: 1   # allow read-only container queries, everything else stays denied
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - docker-api
+
+networks:
+  docker-api:
+    internal: true
